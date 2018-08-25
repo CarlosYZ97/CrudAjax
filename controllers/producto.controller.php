@@ -7,20 +7,19 @@
 		=========================================*/
 		
 
-		static public  function ctrAgregarCategoria($datosForm){
+		static public  function ctrAgregarCategoria($datosAjax){
 
 
-			if(isset($datosForm)){
+			if(isset($datosAjax)){
 
 				$tabla = "categoria";
-				$datos = array("nombre" => $datosForm);
+				$datos = array("nombre" => $datosAjax);
 
 				$respuesta = ModelProductos::mdlAgregarCategoria($tabla,$datos);
 				
 				if($respuesta=="ok"){
-				 	return  'se registró';
+				 	return "ok";
 				}
-
 
 			}
 			

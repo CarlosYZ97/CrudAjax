@@ -130,6 +130,13 @@ MODAL AGREGAR CATEGORIAS
 
         </div>
 
+
+        <?php 
+        // $nuevoCategoria = new ControllerProducto();
+        // $nuevoCategoria -> ctrAgregarCategoria();
+
+        ?>
+
       </form>
 
     </div>

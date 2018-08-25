@@ -37,31 +37,34 @@ $(document).ready(function(){
 $('#AgregarCategoriaProducto').submit(function(e){
 
 	e.preventDefault();
-
-	var datos = $(this).serializeArray();
-	console.log("form",datos);
+	var nomCategoria = $("#nuevoCategoria").val();
+	var datos  = new  FormData();
+	datos.append("nuevoCategoria",nomCategoria);
+	console.log("form",nomCategoria);
 
 	 $.ajax({
 	    url:"ajax/producto.ajax.php",
-	    method:"POST",
+	    type:"POST",
 	    data: datos,
 	    cache: false,
 	    contentType: false,
 	    processData: false,
 	    // dataType: "json",
 	    success:function(respuesta){
-	    	console.log("respuesta",respuesta);
-	    	// swal({
-						// 		type :"success",
-						// 		title : "¡La Categoria ha sido guardado correctamente",
-						// 		showConfirmButton : true,
-						// 		confirmButtonText : "Cerrar",
-						// 		closeOnConfirm : false
-						// 	}).then((result)=>{
-						// 			if(result.value){
-						// 				window.location = "producto-categoria";
-						// 			}
-						// 		});	
+	    	if(respuesta == "ok"){
+	    		swal({
+								type :"success",
+								title : "¡La Categoria ha sido guardado correctamente",
+								showConfirmButton : true,
+								confirmButtonText : "Cerrar",
+								closeOnConfirm : false
+							}).then((result)=>{
+									if(result.value){
+										window.location = "producto-categoria";
+									}
+								});	
+	    	}
+	    	
 	    }
 
 	})

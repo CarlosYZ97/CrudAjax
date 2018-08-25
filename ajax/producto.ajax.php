@@ -9,9 +9,8 @@ class AjaxProducto{
 
 		public function ajaxAgregarCategoria(){
 			$nombre = $this->formCatProduct;
-			$hola = "hola";
-			// $respuesta = ControllerProducto::ctrAgregarCategoria($nombre);
-			echo $hola;
+			$respuesta = ControllerProducto::ctrAgregarCategoria($nombre);
+			echo  $respuesta;
 		}
 
 }
