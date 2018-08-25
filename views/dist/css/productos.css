@@ -1,0 +1,272 @@
+/*Estilos para los checkbox en forma de botones*/
+.botonCheck {
+		display:none;
+}
+
+.botonCheck + .labelBotonCheck {
+		display:inline-block;
+		margin:-2px;
+		padding: 4px 12px;
+		margin-bottom: 0;
+		font-size: 14px;
+		line-height: 20px;
+		color: #333;
+		text-align: center;
+		text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+		vertical-align: middle;
+		cursor: pointer;
+		background-color: #f5f5f5;
+		background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+		background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+		background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+		background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+		background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+		background-repeat: repeat-x;
+		border: 1px solid #ccc;
+		border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+		border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+		border-bottom-color: #b3b3b3;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+		filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+		-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+		-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+		box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+}
+
+.botonCheck:checked + .labelBotonCheck{
+		   background-image: none;
+		outline: 0;
+		-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+		-moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+		box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+			background-color:#e0e0e0;
+}
+
+
+/*Estilos para la vista en cuadricula*/
+
+.col_1_of_single1:first-child {
+	margin-left: 0;
+}
+
+.col_1_of_single1{
+	display: block;
+	float: left;
+	margin: 1% 0 3% 3.6%;
+}
+
+.col_1_of_single1:nth-child(3) {
+	display: none;
+	width: 0;
+}
+
+.col_1_of_single1 {
+		margin: 1% 5px 5% 3.6%;
+}
+
+.col_1_of_single1 {
+	margin: 1% 0px 5% 3.6%;
+	width: 48.2%;
+}
+
+.col_1_of_single1:first-child {
+	margin-left: 24px;
+}
+
+.col_1_of_single1 {
+	margin: 1% 0px 5% 8.7%;
+}
+
+.col_1_of_single1 {
+	width: 80%;
+}
+
+.span_1_of_single1{
+	width: 30.7%;
+	border: 1px solid #DDD;
+}
+
+.span_1_of_single1 {
+	width: 46.85%;
+}
+
+.view1{
+   overflow: hidden;
+   position: relative;
+}
+.view1 .mask1,.view1 .content {
+   position: absolute;
+   overflow: hidden;
+   top: 185px;
+   left:90px;
+}
+
+.view1 .mask1, .view1 .content {
+	top: 168px;
+	left: 60px;
+}
+
+.view1 .mask1, .view1 .content {
+	top: 158px;
+	left: 50px;
+}
+
+.view-fifth1 img {
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+}
+.view-fifth1 .mask1 {
+  -webkit-transform: translateX(-300px);
+   -moz-transform: translateX(-300px);
+   -o-transform: translateX(-300px);
+   -ms-transform: translateX(-300px);
+   transform: translateX(-300px);
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+}
+.view-fifth1:hover .mask1 {
+   -webkit-transform: translateX(0px);
+   -moz-transform: translateX(0px);
+   -o-transform: translateX(0px);
+   -ms-transform: translateX(0px);
+   transform: translateX(0px);
+}
+
+.top_box{
+	padding:6%;
+}
+
+.top_box .css3 img {
+	-webkit-transition-duration: 0.5s;
+	/* Webkit: Animation duration; */
+	-moz-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
+}
+.top_box:hover .css3 img{
+	-webkit-transform: scale(0.9);
+	/* Webkit: Scale up image to 1.2x original size; */
+	-moz-transform: scale(0.9);
+	-o-transform: scale(0.9);
+	opacity: 1;
+}
+
+.top_box {
+	padding: 5%;
+}
+
+h3.m_1{
+	color: #555;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+h3.m_1 {
+	font-size: 0.9em;
+}
+
+h3.m_1 {
+	font-size: 0.8em;
+}
+
+h3.m_2 {
+	font-size: 1em;
+	font-weight: 500;
+	padding: 10px;
+	background: #eb5367;
+	text-transform: uppercase;
+	color: #fff;
+	margin-bottom: 1em;
+}
+
+p.m_2{
+	color:#999;
+	font-size:0.8125em;
+}
+
+h3.m_2 {
+	font-size: 0.9em;
+	padding: 8px;
+	margin-bottom: 0.5em;
+}
+
+.view1 .mask1,.view1 .content {
+   position: absolute;
+   overflow: hidden;
+   top: 185px;
+   left:90px;
+}
+
+.view-fifth1 .mask1 {
+  -webkit-transform: translateX(-300px);
+   -moz-transform: translateX(-300px);
+   -o-transform: translateX(-300px);
+   -ms-transform: translateX(-300px);
+   transform: translateX(-300px);
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+}
+.view-fifth1:hover .mask1 {
+   -webkit-transform: translateX(0px);
+   -moz-transform: translateX(0px);
+   -o-transform: translateX(0px);
+   -ms-transform: translateX(0px);
+   transform: translateX(0px);
+}
+
+.view1 .mask1, .view1 .content {
+	top: 168px;
+	left: 60px;
+}
+
+.view1 .mask1, .view1 .content {
+	top: 158px;
+	left: 50px;
+}
+
+.productoCuadro{
+	width: 550px;
+}
+
+.medidaProducto{
+	float: right;
+}
+
+.condicionProducto{
+	float: right;
+}
+
+.productoOferta{
+	color: green;
+	margin-left: 20px;
+}
+
+.productoNuevo{
+	color:#FFC300;
+	margin-left: 20px;
+}
+
+.botonSubirImagen{
+	float:none;
+	text-align:center;
+}
+
+.btnSubirEPS{
+	float:none;
+	text-align:center;
+}
