@@ -38,9 +38,7 @@ $('#AgregarCategoriaProducto').submit(function(e){
 
 	e.preventDefault();
 	var nomCategoria = $("#nuevoCategoria").val();
-	var datos  = new  FormData();
-	datos.append("nuevoCategoria",nomCategoria);
-	console.log("form",nomCategoria);
+	var datos  = new  FormData($("#AgregarCategoriaProducto")[0]);
 
 	 $.ajax({
 	    url:"ajax/producto.ajax.php",
