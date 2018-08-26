@@ -20,7 +20,7 @@
           </h3>
         </div>
         <div class="box-body">
-          <table class="table table-bordered table-striped dt-responsive tablas">
+          <table id="tablaCategoria" class="table table-bordered table-striped dt-responsive tablas">
          
         <thead>
          
@@ -28,7 +28,8 @@
            
            <th style="width:10px">Código</th>
            <th>Categoría</th>
-           <th>Acciones</th>
+           <th></th>
+           <th></th>
 
          </tr> 
 
@@ -46,12 +47,13 @@
                     <td>
                       <div class="btn-group">
                         <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button> 
-                        <button class="btn btn-danger" ><i class="fa fa-times"></i></button>
-                     
-                      </div>  
-
+                      </div>
                     </td>
-
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-danger" ><i class="fa fa-times"></i></button>
+                      </div>   
+                    </td>
               </tr>';
             }
 
@@ -126,7 +128,7 @@ MODAL AGREGAR CATEGORIAS
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Categoría</button>
+          <button class="btn btn-primary">Guardar Categoría</button>
 
         </div>
 
@@ -215,7 +217,7 @@ MODAL EDITAR CATEGORIAS
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Modificar Categoría</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Modificar Categoría</button>
 
         </div>
 

@@ -49,7 +49,20 @@ $('#AgregarCategoriaProducto').submit(function(e){
 	    processData: false,
 	    // dataType: "json",
 	    success:function(respuesta){
-	    	if(respuesta == "ok"){
+	    	 var listarCategorias=$.parseJSON(respuesta);
+	    	console.log(listarCategorias);
+            var tabla= $('#tablaCategoria').DataTable();
+            tabla.clear().draw();
+
+            for(var i=0; i<listarCategorias.length; i++){
+            	tabla.row.add( [ 
+                    listarCategorias[i].codigo,
+                    listarCategorias[i].nombre,
+                    '<div class="btn-group"><button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button> </div>',
+                    '<div class="btn-group"><button class="btn btn-danger" ><i class="fa fa-times"></i></button></div> '
+                ] ).draw().node();
+            }
+            $('#modalAgregarCategoria').modal('hide');
 	    		swal({
 								type :"success",
 								title : "¡La Categoria ha sido guardado correctamente",
@@ -57,11 +70,8 @@ $('#AgregarCategoriaProducto').submit(function(e){
 								confirmButtonText : "Cerrar",
 								closeOnConfirm : false
 							}).then((result)=>{
-									if(result.value){
-										window.location = "producto-categoria";
-									}
+									
 								});	
-	    	}
 	    	
 	    }
 
