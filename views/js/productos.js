@@ -70,7 +70,7 @@ $('#AgregarCategoriaProducto').submit(function(e){
 								confirmButtonText : "Cerrar",
 								closeOnConfirm : false
 							}).then((result)=>{
-									
+									$('#nuevoCategoria').val("");
 								});	
 	    	
 	    }
