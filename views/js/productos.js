@@ -26,6 +26,52 @@ $(document).ready(function(){
 });
 
 
+/*=============================================
+=            Listar Categoria Ajax            =
+=============================================*/
+
+
+$(document).ready(function(){
+	var dataTable = $("#tablaCategoria").DataTable({
+		  "language": {
+
+			    "sProcessing":     "Procesando...",
+			    "sLengthMenu":     "Mostrar _MENU_ registros",
+			    "sZeroRecords":    "No se encontraron resultados",
+			    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+			    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+			    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
+			    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+			    "sInfoPostFix":    "",
+			    "sSearch":         "Buscar:",
+			    "sUrl":            "",
+			    "sInfoThousands":  ",",
+			    "sLoadingRecords": "Cargando...",
+			    "oPaginate": {
+			    "sFirst":    "Primero",
+			    "sLast":     "Último",
+			    "sNext":     "Siguiente",
+			    "sPrevious": "Anterior"
+			    },
+			    "oAria": {
+			      "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+			      "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			    }
+
+		  	},
+
+		"processing":true,
+		"serverSide":true,
+		"order":[],
+		"ajax":{
+			data:{"cargar":1},
+			url:"ajax/producto.ajax.php",
+			// url:"models/server_process.php",
+			type:"POST"
+		}
+	})
+
+
 
 /*==============================================
 =            Agregar Categoria Ajax            =
@@ -47,33 +93,44 @@ $('#AgregarCategoriaProducto').submit(function(e){
 	    cache: false,
 	    contentType: false,
 	    processData: false,
-	    // dataType: "json",
 	    success:function(respuesta){
-	    	 var listarCategorias=$.parseJSON(respuesta);
-	    	console.log(listarCategorias);
-            var tabla= $('#tablaCategoria').DataTable();
-            tabla.clear().draw();
 
-            for(var i=0; i<listarCategorias.length; i++){
-            	tabla.row.add( [ 
-                    listarCategorias[i].codigo,
-                    listarCategorias[i].nombre,
-                    '<div class="btn-group"><button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button> </div>',
-                    '<div class="btn-group"><button class="btn btn-danger" ><i class="fa fa-times"></i></button></div> '
-                ] ).draw().node();
-            }
             $('#modalAgregarCategoria').modal('hide');
-	    		swal({
+            swal({
 								type :"success",
 								title : "¡La Categoria ha sido guardado correctamente",
 								showConfirmButton : true,
 								confirmButtonText : "Cerrar",
 								closeOnConfirm : false
 							}).then((result)=>{
+								dataTable.ajax.reload();
 									$('#nuevoCategoria').val("");
 								});	
-	    	
+            
+    	
 	    }
 
 	})
 })
+
+$(document).on('click','.delete',function(){
+	var categorie_id = $(this).attr("id");
+	
+	var dato = new FormData();
+		dato.append("idCategoria",categorie_id);
+		$.ajax({
+				url:"ajax/producto.ajax.php",
+				method:"POST",
+				data:dato,
+				success:function(){
+					
+					dataTable.ajax.reload()
+				}
+			});
+
+});
+
+
+
+
+});

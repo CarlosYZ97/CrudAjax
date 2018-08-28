@@ -32,6 +32,13 @@
 			return $respuesta;
 
 		}
+
+		static public function ctrEliminarCategoria($valor){
+			$tabla = "categoria";
+			$respuesta = ModelProductos::mdlEliminarCategoria($tabla,$valor);
+			return $respuesta;
+
+		}
 		
 		
 

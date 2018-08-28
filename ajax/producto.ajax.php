@@ -8,10 +8,24 @@ class AjaxProducto{
 		public $formCatProduct;
 
 		public function ajaxAgregarCategoria(){
-			$nombre = $this->formCatProduct;
 			$respuesta = ControllerProducto::ctrAgregarCategoria($nombre);
-			$respuesta2 = ControllerProducto::ctrMostrarCategoria();
-			echo json_encode($respuesta2);
+		}
+
+
+
+
+		public function ajaxMostrarCategoria(){
+			$respuesta = ControllerProducto::ctrMostrarCategoria();
+			echo json_encode($respuesta);
+		}
+
+
+		public $idCategoria;
+
+		public function ajaxEliminarCategoria(){
+			$valor = $this->idCategoria;
+			$respuesta = ControllerProducto::ctrEliminarCategoria($valor);
+			echo $respuesta;
 		}
 }
 
@@ -23,4 +37,16 @@ if(isset($_POST["nuevoCategoria"])){
 	$agregarCat -> formCatProduct = $_POST["nuevoCategoria"];
 	$agregarCat -> ajaxAgregarCategoria();
 
+}
+
+
+if(isset($_POST["cargar"])){
+	$mostrarCat = new AjaxProducto();
+	$mostrarCat -> ajaxMostrarCategoria();
+}
+
+if(isset($_POST["idCategoria"])){
+	$eliminarCat = new AjaxProducto();
+	$eliminarCat -> idCategoria = $_POST["idCategoria"];
+	$eliminarCat -> ajaxEliminarCategoria();
 }
