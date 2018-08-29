@@ -19,12 +19,20 @@
 				
 				if($respuesta=="ok"){
 				 	return "ok";
+				}else{
+					return "error";
 				}
 
 			}
 			
 		}
 
+		/*=========================================
+		=            MOSTRAR CATEGORIA            =
+		=========================================*/
+		
+		
+		
 		static public function ctrMostrarCategoria(){
 
 			$tabla = "categoria";
@@ -33,11 +41,41 @@
 
 		}
 
+		/*==========================================
+		=            ELIMINAR CATEGORIA            =
+		==========================================*/
+		
+		
+		
 		static public function ctrEliminarCategoria($valor){
 			$tabla = "categoria";
 			$respuesta = ModelProductos::mdlEliminarCategoria($tabla,$valor);
 			return $respuesta;
 
+		}
+
+		/*========================================
+		=            BUSCAR CATEGORIA            =
+		========================================*/
+		
+		
+		
+		static public function ctrBuscarCategoria($item,$valor){
+			$tabla = "categoria";
+			$respuesta = ModelProductos::mdlBuscarCategoria($tabla,$item,$valor);
+			return $respuesta;
+		}
+
+		/*========================================
+		=            Editar CATEGORIA            =
+		========================================*/
+		
+		
+		
+		static public function ctrEditarCategoria($item,$valor){
+			$tabla = "categoria";
+			$respuesta = ModelProductos::mdlEditarCategoria($tabla,$item,$valor);
+			return $respuesta;
 		}
 		
 		

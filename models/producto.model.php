@@ -26,6 +26,35 @@
 
 		}
 
+
+		static public function mdlBuscarCategoria($tabla,$item,$dato){
+
+			$stmt = Conexion::conectar()->prepare("select * from $tabla where $item = :item ");
+			$stmt -> bindParam(":item", $dato,PDO::PARAM_INT);
+			$stmt->execute();
+			return $stmt -> fetch();
+
+			$stmt->close();
+			$stmt = null;
+
+		}
+
+
+		static public function mdlEditarCategoria($tabla,$item,$datos){
+			$stmt = Conexion::conectar()->prepare("update $tabla set nombre = :nombre where codigo = :codigo");
+			$stmt -> bindParam("nombre",$datos["nombreCategoria"],PDO::PARAM_STR);
+			$stmt -> bindParam("codigo",$datos["id"],PDO::PARAM_INT);
+			if($stmt->execute()){
+				return "ok";
+			}else{
+				return "error";
+			}
+
+			$stmt-> close();
+			$stmt = null;
+
+		}
+
 		static public function mdlMostrarCategoria($tabla){
 
 			$query = '';

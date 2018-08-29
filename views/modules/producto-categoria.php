@@ -30,39 +30,12 @@
            <th>Categoría</th>
            <th></th>
            <th></th>
-           <!-- <th>VVV</th> -->
-
          </tr> 
 
         </thead>
 
         <tbody>
 
-          <?php 
-            // $categoria = ControllerProducto::ctrMostrarCategoria();
-
-            // foreach ($categoria as $key => $value) {
-            //   echo '<tr>
-            //         <td>'.$value["codigo"].'</td>
-            //         <td class="text-uppercase ">'.$value["nombre"].'</td>
-            //         <td>
-            //           <div class="btn-group">
-            //             <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button> 
-            //           </div>
-            //         </td>
-            //         <td>
-            //           <div class="btn-group">
-            //             <button class="btn btn-danger" ><i class="fa fa-times"></i></button>
-            //           </div>   
-            //         </td>
-            //         <td>
-            //           FFFFF
-            //         </td>
-            //   </tr>';
-            // }
-
-          ?>
-        
         </tbody>
 
        </table>
@@ -161,7 +134,7 @@ MODAL EDITAR CATEGORIAS
 
     <div class="modal-content">
 
-      <form role="form" method="post">
+      <form role="form" method="post"  id="editarFormCategoria">
 
         <!--=====================================
         CABEZA DEL MODAL
@@ -191,20 +164,13 @@ MODAL EDITAR CATEGORIAS
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
+                <input type="hidden" id="editarIdCategoria" name="editarIdCategoria">
                 <input type="text" class="form-control" name="editarCategoria" id="editarCategoria" placeholder="Ingresar Categoría" required>
 
               </div>
 
             </div>
-            <div class="form-group col-md-3">
-              <input class="form-check-input " type="checkbox" id="chkedittalla" value="1">
-              <label class="form-check-label " for="chkedittalla">Talla</label>
-            </div>
-            <div class="form-group col-md-3">
-              <input class="form-check-input " type="checkbox" id="chkeditcolor" value="1">
-              <label class="form-check-label " for="chkeditcolor">Color</label>
-            </div>
+
           </div>
 
             
@@ -221,7 +187,7 @@ MODAL EDITAR CATEGORIAS
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Modificar Categoría</button>
+          <button class="btn btn-primary">Modificar Categoría</button>
 
         </div>
 

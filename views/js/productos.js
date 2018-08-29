@@ -66,9 +66,14 @@ $(document).ready(function(){
 		"ajax":{
 			data:{"cargar":1},
 			url:"ajax/producto.ajax.php",
-			// url:"models/server_process.php",
 			type:"POST"
-		}
+		},
+		"columnDefs":[
+			{
+				"targets":[0,1,2, 3],
+				"orderable":false,
+			},
+		],
 	})
 
 
@@ -83,8 +88,8 @@ $(document).ready(function(){
 $('#AgregarCategoriaProducto').submit(function(e){
 
 	e.preventDefault();
-	var nomCategoria = $("#nuevoCategoria").val();
 	var datos  = new  FormData($("#AgregarCategoriaProducto")[0]);
+
 
 	 $.ajax({
 	    url:"ajax/producto.ajax.php",
@@ -94,39 +99,146 @@ $('#AgregarCategoriaProducto').submit(function(e){
 	    contentType: false,
 	    processData: false,
 	    success:function(respuesta){
+			$('#modalAgregarCategoria').modal('hide');
+				            $('body').css({"padding-right" : "0"});
+	    	if(respuesta=="ok"){
 
-            $('#modalAgregarCategoria').modal('hide');
+	            
+	            swal({
+									type :"success",
+									title : "¡La Categoria ha sido guardado correctamente",
+									showConfirmButton : true,
+									confirmButtonText : "Cerrar",
+									closeOnConfirm : false
+								}).then((result)=>{
+									dataTable.ajax.reload();
+										$('#nuevoCategoria').val("");
+									});	
+	    	}else{
+	    		swal(
+				      '!Error al insertar!',
+				      'La Categoría no ha sido insertada correctamente.',
+				      'error'
+				    )
+	    	}
+	    }
+
+	})
+});
+
+
+/*=============================================
+=            EDITAR CATEGORIA AJAX            =
+=============================================*/
+
+
+
+$("#editarFormCategoria").submit(function(e){
+	e.preventDefault();
+
+	var datos  = new  FormData($("#editarFormCategoria")[0]);
+
+	$.ajax({
+	    url:"ajax/producto.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    // dataType:"json",
+	    success:function(respuesta){
+	    		console.log("respuesta",respuesta);
+            $('#modalEditarCategoria').modal('hide');
+            $('body').css({"padding-right" : "0"});
             swal({
 								type :"success",
-								title : "¡La Categoria ha sido guardado correctamente",
+								title : "¡La Categoria ha sido modificado correctamente",
 								showConfirmButton : true,
 								confirmButtonText : "Cerrar",
 								closeOnConfirm : false
 							}).then((result)=>{
 								dataTable.ajax.reload();
-									$('#nuevoCategoria').val("");
+									$('#editarCategoria').val("");
 								});	
             
     	
 	    }
 
 	})
-})
+});
+
+/*========================================
+=            BUSCAR CATEGORIA            =
+========================================*/
+
+
+
+
+$(document).on('click','.update',function(){
+	var categorie_id_editar = $(this).attr("id");
+	var dat = new FormData();
+	dat.append("idCategoriaEditar",categorie_id_editar);
+
+	$.ajax({
+		url:"ajax/producto.ajax.php",
+		method:"post",
+		data: dat,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(data){
+			$("#editarIdCategoria").val(data.codigo);
+			$("#editarCategoria").val(data.nombre);
+		}
+	})
+});
+
+
+/*===============================================
+=            ELIMINAR CATEGORIA AJAX            =
+===============================================*/
+
+
+
+
 
 $(document).on('click','.delete',function(){
 	var categorie_id = $(this).attr("id");
 	
 	var dato = new FormData();
-		dato.append("idCategoria",categorie_id);
-		$.ajax({
+	dato.append("idCategoria",categorie_id);
+
+	swal({
+		title: "¿Estás seguro de borrar la Categoría?",
+		text: "¡Si no lo está puede cancelar la acción!",
+		type: "warning",
+		showCancelButton:true,
+		confirmButtonColor:"#3085d6",
+		cancelButtonColor:"#d33",
+		cancelButtonText:"Cancelar",
+		confirmButtonText : "Si, borrar Categoría"
+	}).then((result)=>{
+		if(result.value){
+			$.ajax({
 				url:"ajax/producto.ajax.php",
-				method:"POST",
-				data:dato,
-				success:function(){
-					
-					dataTable.ajax.reload()
+				method:"post",
+				data: dato,
+				cache: false,
+				contentType: false,
+				processData: false,
+				success: function(){
+					swal(
+				      '!Eliminado!',
+				      'La Categoría ha sido eliminada.',
+				      'success'
+				    )
+					dataTable.ajax.reload();
 				}
-			});
+			})
+		}
+	});
+
 
 });
 
