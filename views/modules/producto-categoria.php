@@ -20,7 +20,7 @@
           </h3>
         </div>
         <div class="box-body">
-          <table class="table table-bordered table-striped dt-responsive tablas">
+          <table id="tablaCategoria" class="table table-bordered table-striped dt-responsive tablas">
          
         <thead>
          
@@ -28,35 +28,14 @@
            
            <th style="width:10px">Código</th>
            <th>Categoría</th>
-           <th>Acciones</th>
-
+           <th></th>
+           <th></th>
          </tr> 
 
         </thead>
 
         <tbody>
 
-          <?php 
-            $categoria = ControllerProducto::ctrMostrarCategoria();
-
-            foreach ($categoria as $key => $value) {
-              echo '<tr>
-                    <td>'.$value["codigo"].'</td>
-                    <td class="text-uppercase ">'.$value["nombre"].'</td>
-                    <td>
-                      <div class="btn-group">
-                        <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button> 
-                        <button class="btn btn-danger" ><i class="fa fa-times"></i></button>
-                     
-                      </div>  
-
-                    </td>
-
-              </tr>';
-            }
-
-          ?>
-        
         </tbody>
 
        </table>
@@ -126,7 +105,7 @@ MODAL AGREGAR CATEGORIAS
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Categoría</button>
+          <button class="btn btn-primary">Guardar Categoría</button>
 
         </div>
 
@@ -155,7 +134,7 @@ MODAL EDITAR CATEGORIAS
 
     <div class="modal-content">
 
-      <form role="form" method="post">
+      <form role="form" method="post"  id="editarFormCategoria">
 
         <!--=====================================
         CABEZA DEL MODAL
@@ -185,20 +164,13 @@ MODAL EDITAR CATEGORIAS
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
+                <input type="hidden" id="editarIdCategoria" name="editarIdCategoria">
                 <input type="text" class="form-control" name="editarCategoria" id="editarCategoria" placeholder="Ingresar Categoría" required>
 
               </div>
 
             </div>
-            <div class="form-group col-md-3">
-              <input class="form-check-input " type="checkbox" id="chkedittalla" value="1">
-              <label class="form-check-label " for="chkedittalla">Talla</label>
-            </div>
-            <div class="form-group col-md-3">
-              <input class="form-check-input " type="checkbox" id="chkeditcolor" value="1">
-              <label class="form-check-label " for="chkeditcolor">Color</label>
-            </div>
+
           </div>
 
             
@@ -215,7 +187,7 @@ MODAL EDITAR CATEGORIAS
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Modificar Categoría</button>
+          <button class="btn btn-primary">Modificar Categoría</button>
 
         </div>
 
@@ -230,34 +202,34 @@ MODAL EDITAR CATEGORIAS
 
 
   <script>
-  $(".tablas").DataTable({
+//   $(".tablas").DataTable({
 
-  "language": {
+//   "language": {
 
-    "sProcessing":     "Procesando...",
-    "sLengthMenu":     "Mostrar _MENU_ registros",
-    "sZeroRecords":    "No se encontraron resultados",
-    "sEmptyTable":     "Ningún dato disponible en esta tabla",
-    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
-    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
-    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-    "sInfoPostFix":    "",
-    "sSearch":         "Buscar:",
-    "sUrl":            "",
-    "sInfoThousands":  ",",
-    "sLoadingRecords": "Cargando...",
-    "oPaginate": {
-    "sFirst":    "Primero",
-    "sLast":     "Último",
-    "sNext":     "Siguiente",
-    "sPrevious": "Anterior"
-    },
-    "oAria": {
-      "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-      "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-    }
+//     "sProcessing":     "Procesando...",
+//     "sLengthMenu":     "Mostrar _MENU_ registros",
+//     "sZeroRecords":    "No se encontraron resultados",
+//     "sEmptyTable":     "Ningún dato disponible en esta tabla",
+//     "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+//     "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
+//     "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+//     "sInfoPostFix":    "",
+//     "sSearch":         "Buscar:",
+//     "sUrl":            "",
+//     "sInfoThousands":  ",",
+//     "sLoadingRecords": "Cargando...",
+//     "oPaginate": {
+//     "sFirst":    "Primero",
+//     "sLast":     "Último",
+//     "sNext":     "Siguiente",
+//     "sPrevious": "Anterior"
+//     },
+//     "oAria": {
+//       "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+//       "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+//     }
 
-  }
+//   }
 
-});
+// });
 </script>
